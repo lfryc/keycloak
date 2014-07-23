@@ -1,4 +1,4 @@
-package org.keycloak.admin.client.service.interfaces;
+package org.keycloak.admin.client.resource;
 
 import org.keycloak.representations.idm.RoleRepresentation;
 
@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public interface UserRolesService {
+public interface KeycloakRoleScope {
 
     @GET
     public List<RoleRepresentation> listAll();

@@ -1,13 +1,12 @@
-package org.keycloak.admin.client.service.interfaces;
+package org.keycloak.admin.client.resource;
 
 import org.keycloak.representations.idm.UserRepresentation;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.List;
 
-public interface UsersService {
+public interface KeycloakUsers {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -22,9 +21,9 @@ public interface UsersService {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response create(UserRepresentation userRepresentation);
+    public void create(UserRepresentation userRepresentation);
 
     @Path("{username}")
-    public UserService get(@PathParam("username") String username);
+    public KeycloakUser get(@PathParam("username") String username);
 
 }

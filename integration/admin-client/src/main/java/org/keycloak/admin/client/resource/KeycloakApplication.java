@@ -1,19 +1,17 @@
-package org.keycloak.admin.client.service.interfaces;
+package org.keycloak.admin.client.resource;
 
 import org.keycloak.representations.idm.ApplicationRepresentation;
 import org.keycloak.representations.idm.ClaimRepresentation;
 import org.keycloak.representations.idm.CredentialRepresentation;
-import org.keycloak.representations.idm.MappingsRepresentation;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.Set;
 
 /**
  * @author rodrigo.sasaki@icarros.com.br
  */
-public interface ApplicationService {
+public interface KeycloakApplication {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -21,7 +19,7 @@ public interface ApplicationService {
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response update(ApplicationRepresentation applicationRepresentation);
+    public void update(ApplicationRepresentation applicationRepresentation);
 
     @DELETE
     public void remove();
@@ -83,12 +81,10 @@ public interface ApplicationService {
     @Path("push-revocation")
     public void pushRevocation();
 
-    @GET
-    @Path("scope-mappings")
-    @Produces(MediaType.APPLICATION_JSON)
-    public MappingsRepresentation getScopeMappings();
+    @Path("/scope-mappings")
+    public KeycloakRoleMappings getScopeMappings();
 
     @Path("/roles")
-    public ApplicationRolesService roles();
+    public KeycloakRoles roles();
 
 }

@@ -1,4 +1,4 @@
-package org.keycloak.admin.client.service.interfaces;
+package org.keycloak.admin.client.resource;
 
 import org.keycloak.representations.idm.MappingsRepresentation;
 
@@ -10,15 +10,15 @@ import javax.ws.rs.core.MediaType;
  */
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public interface UserRoleMappingsService {
+public interface KeycloakRoleMappings {
 
     @GET
-    public MappingsRepresentation getMappings();
+    public MappingsRepresentation getAll();
 
     @Path("realm")
-    public UserRolesService realmLevel();
+    public KeycloakRoleScope realmLevel();
 
     @Path("applications/{appName}")
-    public UserRolesService applicationLevel(@PathParam("appName") String appName);
+    public KeycloakRoleScope applicationLevel(@PathParam("appName") String appName);
 
 }

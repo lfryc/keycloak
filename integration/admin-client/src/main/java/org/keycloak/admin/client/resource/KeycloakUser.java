@@ -1,4 +1,4 @@
-package org.keycloak.admin.client.service.interfaces;
+package org.keycloak.admin.client.resource;
 
 import org.keycloak.representations.adapters.action.UserStats;
 import org.keycloak.representations.idm.CredentialRepresentation;
@@ -8,7 +8,6 @@ import org.keycloak.representations.idm.UserSessionRepresentation;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Map;
 
@@ -17,13 +16,13 @@ import java.util.Map;
  */
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public interface UserService {
+public interface KeycloakUser {
 
     @GET
     public UserRepresentation toRepresentation();
 
     @PUT
-    public Response update(UserRepresentation userRepresentation);
+    public void update(UserRepresentation userRepresentation);
 
     @DELETE
     public void remove();
@@ -42,7 +41,7 @@ public interface UserService {
 
     @PUT
     @Path("reset-password-email")
-    public Response resetPasswordEmail();
+    public void resetPasswordEmail();
 
     @GET
     @Path("session-stats")
@@ -57,6 +56,6 @@ public interface UserService {
     public List<SocialLinkRepresentation> getSocialLinks();
 
     @Path("role-mappings")
-    public UserRoleMappingsService roles();
+    public KeycloakRoleMappings roles();
 
 }

@@ -1,4 +1,4 @@
-package org.keycloak.admin.client.service.interfaces;
+package org.keycloak.admin.client.resource;
 
 import org.keycloak.representations.idm.ApplicationRepresentation;
 
@@ -9,10 +9,10 @@ import java.util.List;
 /**
  * @author rodrigo.sasaki@icarros.com.br
  */
-public interface ApplicationsService {
+public interface KeycloakApplications {
 
     @Path("{appName}")
-    public ApplicationService get(@PathParam("appName") String appName);
+    public KeycloakApplication get(@PathParam("appName") String appName);
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
