@@ -60,7 +60,7 @@
                 </div>
             </div>
 
-            <div class="${properties.kcFormGroupClass!}">
+            <div class="padding ${properties.kcFormGroupClass!}">
                 <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
                     <div class="${properties.kcFormOptionsWrapperClass!}">
                         <span><a class="button button-block button-stable" href="${url.loginUrl}">${rb.backToLogin}</a></span>
